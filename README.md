@@ -1,19 +1,23 @@
-### Co to?
+# Q&A
 
-Test wydajności pobierania indeksowanego elementu w double-linked list z zapamiętywaniem ostatniego zapytania i bez. Wyniki zmierzone u mnie wskazują na ponad 40% wzrost wydajności.
+### What is this?
 
-### Czemu tak brzydko napisane?
+A test of some heuristics on doubly-linked list.
 
-Bo w pół godziny dla testu.
+### Why is it written so badly?
 
-### Czemu testowanie jest takie bez sensu?
+Cause it took half an hour.
 
-Bo w pół godziny dla testu.
+### Why are test so meaningless?
 
-### A wiesz, że ta struktura danych do tego nie służy?
+Cause it took half an hour.
 
-Wiem, ale mnie zaciekawiło i zrobiłem.
+### Do you know that this data structure is not to be used like that?
 
-### Wow niesamowicie ciekawe, mogę ci zapłacić?
+Yep.
 
-[Bardzo.](http://paypal.me/Bartor)
+### Wow that's fascinating, can I Pay you?
+
+[Of course.](http://paypal.me/Bartor)
+
+# Results
