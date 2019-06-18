@@ -1,0 +1,1 @@
+Test wydajności pobierania indeksowanego elementu w double-linked list z zapamiętywaniem ostatniego zapytania i bez. Wyniki zmierzone u mnie wskazują na ponad 40% wzrost wydajności.
