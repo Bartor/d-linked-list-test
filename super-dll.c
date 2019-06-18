@@ -77,7 +77,7 @@ Node* scachedGet(sdll* list, int index) {
     }
 }
 
-void cleanUp(sdll* list) {
+void scleanUp(sdll* list) {
     Node* temp = list->head, *last = list->head;
     while (last != NULL) {
         temp = last->next;

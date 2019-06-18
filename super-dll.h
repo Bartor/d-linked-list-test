@@ -18,5 +18,6 @@ typedef struct {
 
 void sinsert(sdll* list, int value);
 Node* scachedGet(sdll* list, int index);
+void scleanUp(sdll* list);
 
 #endif

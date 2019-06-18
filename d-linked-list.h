@@ -18,5 +18,6 @@ typedef struct {
 void insert(DLinkedList* list, int value);
 Node* get(DLinkedList* list, int index);
 Node* cachedGet(DLinkedList* list, int index);
+void cleanUp(DLinkedList* list);
 
 #endif

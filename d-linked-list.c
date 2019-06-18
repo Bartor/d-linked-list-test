@@ -5,6 +5,7 @@
 void insert(DLinkedList* list, int value) {
     Node* n = malloc(sizeof(Node));
     n->value = value;
+    n->next = NULL;
     if (list->size == 0) {
         list->head = n;
         list->tail = n;
@@ -110,4 +111,13 @@ Node* cachedGet(DLinkedList* list, int index) {
             }
         }
     }
+}
+
+void cleanUp(DLinkedList* list) {
+    Node* temp = list->head, *last = list->head;
+    while (last != NULL) {
+        temp = last->next;
+        free(last);
+        last = temp;
+    }   
 }
