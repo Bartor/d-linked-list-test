@@ -26,6 +26,7 @@ void sinsert(sdll* list, int value) {
 }
 
 void shiftBack(Cache** array, int size, Cache* new) {
+    free(array[size-1]);
     for (int i = 0; i < size - 1; i++) {
         array[i] = array[i+1];
     }
@@ -76,3 +77,13 @@ Node* scachedGet(sdll* list, int index) {
     }
 }
 
+void cleanUp(sdll* list) {
+    Node* temp = list->head, *last = list->head;
+    while (last != NULL) {
+        temp = last->next;
+        free(last);
+        last = temp;
+    }
+    for (int i = 0; i < list->cacheSize; i++) free(list->cache[i]);
+    free(list->cache);
+}
