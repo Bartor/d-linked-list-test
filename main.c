@@ -28,7 +28,7 @@ int main(void) {
     printf("cached get: %f s\n", (1.0*clock() - time)/CLOCKS_PER_SEC);
     cleanUp(&l);
 
-    for (int cache = 1; cache < 10; cache++) {
+    for (int cache = 5; cache < 100; cache++) {
         sdll sl = {NULL, NULL, malloc(sizeof(Cache*)*cache), cache, 0};
         for (int i = 0; i < SIZE; i++) {
             sinsert(&sl, i);
@@ -38,7 +38,7 @@ int main(void) {
         for (int i = 0; i < SIZE; i++) {
             scachedGet(&sl, (rand()*rand() + rand()) % SIZE);
         }
-        printf("super%d cached get: %f s\n", cache, (1.0*clock() - time)/CLOCKS_PER_SEC);
+        printf("%d, %f\n", cache, (1.0*clock() - time)/CLOCKS_PER_SEC);
         scleanUp(&sl);
     }
     
