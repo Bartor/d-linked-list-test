@@ -55,7 +55,7 @@ So there's a spike on giving it any cache and then it steadily declines. We can 
 | 20000      | 0.0631   |
 | 40000      | 0.0632   |
 
-![Results, to 50 000, step 1000](results/res5step.png)
+![Results, to 50 000, step 1000](results/res1000step.png)
 
 ## Conclusions
 
