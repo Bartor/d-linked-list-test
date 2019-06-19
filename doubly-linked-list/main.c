@@ -12,7 +12,7 @@ int SMPL = 10;
 
 int main(void) {    
     float times[CACH];
-    memset(times, 0.0, CACH*SMPL*sizeof(float));
+    memset(times, 0.0, CACH*sizeof(float));
 
     for (int t = 0; t < SMPL; t++) {
         for (int cache = 0; cache < CACH; cache++) {
