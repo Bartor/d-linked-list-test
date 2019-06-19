@@ -42,7 +42,7 @@ void ins(DLL* list, void* value) {
     list->size++;
 }
 
-void* get(DLL* list, int idx) {
+Node* _get(DLL* list, int idx) {
     //we can't return anything outside the list
     if (idx < 0 || idx > list->size - 1) return NULL;
 
@@ -90,11 +90,61 @@ void* get(DLL* list, int idx) {
         list->cache[mi].ref = res;
     }
 
+    return res;
+}
+
+void* get(DLL* list, int idx) {
+    Node* res = _get(list, idx);
+    if (res == NULL) return NULL;
     return res->value;
 }
 
+
 void del(DLL* list, int idx) {
-    //todo implement
+    Node* toDelete = _get(list, idx);
+    for (int i = 0; i < list->cache_size; i++) {
+        if (list->cache[i].idx > idx) {
+            //we decrement the id of every cached element after deleted element
+            list->cache[i].idx--;
+        } else if (list->cache[i].idx == idx) {
+            //if we have deleted element cached
+            if (list->cache_size > 1) {
+                //if the cache is more than one element
+                if (i == list->cache_size - 1 && i != 0) {
+                    //if it's the last one in cache, copy previous record
+                    list->cache[i].idx = list->cache[i-1].idx;
+                    list->cache[i].ref = list->cache[i-1].ref;
+                } else {
+                    //if it'n not the last one, copy next
+                    list->cache[i].idx = list->cache[i+1].idx;
+                    list->cache[i].ref = list->cache[i+1].ref;
+                }
+            } else {
+                //if the cache was one element
+                if (list->size == 1) {
+                    //if we're deleting the only element
+                    //todo think of something clever
+                } else {
+                    //if there are more elements, just replace it with middle element
+                    list->cache[i].idx = list->size/2;
+                    list->cache[i].ref = _get(list, list->size/2);
+                }
+            }
+        }
+    }
+
+    if (list->head == toDelete) {
+        list->head = toDelete->next;
+    }
+
+    if (list->tail == toDelete) {
+        list->tail = toDelete->prev;
+    }
+
+    toDelete->prev->next = toDelete->next;
+    toDelete->next->prev = toDelete->prev;
+
+    free(toDelete);
 }
 
 void del_dll(DLL* list) {
