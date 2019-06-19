@@ -49,6 +49,7 @@ We can clearly see that the times go up for a while before getting very fast. He
 So there's a spike on giving it any cache and then it steadily declines. We can also experiment and ask, if there's a cache size < list size which starts increasing the times (this one is one hundred tries):
 
 | Cache size | Time [s] |
+| ---------- | -------- |
 | 1000       | 0.0624   |
 | 5000       | 0.0634   |
 | 10000      | 0.0632   |
